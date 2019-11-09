@@ -1,0 +1,14 @@
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\bin\Debug\netcoreapp2.2\Tic-Tac-Toe.deps.json
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\bin\Debug\netcoreapp2.2\Tic-Tac-Toe.runtimeconfig.json
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\bin\Debug\netcoreapp2.2\Tic-Tac-Toe.runtimeconfig.dev.json
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\bin\Debug\netcoreapp2.2\Tic-Tac-Toe.dll
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\obj\Debug\netcoreapp2.2\Tic-Tac-Toe.csprojAssemblyReference.cache
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\obj\Debug\netcoreapp2.2\Tic-Tac-Toe.csproj.CoreCompileInputs.cache
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\obj\Debug\netcoreapp2.2\Tic-Tac-Toe.RazorAssemblyInfo.cache
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\obj\Debug\netcoreapp2.2\Tic-Tac-Toe.RazorAssemblyInfo.cs
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\obj\Debug\netcoreapp2.2\Tic-Tac-Toe.AssemblyInfoInputs.cache
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\obj\Debug\netcoreapp2.2\Tic-Tac-Toe.AssemblyInfo.cs
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\obj\Debug\netcoreapp2.2\Tic-Tac-Toe.RazorTargetAssemblyInfo.cache
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\bin\Debug\netcoreapp2.2\Tic-Tac-Toe.pdb
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\obj\Debug\netcoreapp2.2\Tic-Tac-Toe.dll
+C:\Users\jmandal\Desktop\DotNetAPI\Tic-Tac-Toe-API\Tic-Tac-Toe\Tic-Tac-Toe\obj\Debug\netcoreapp2.2\Tic-Tac-Toe.pdb
