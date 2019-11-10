@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace Tic_Tac_Toe.Controllers
 {
@@ -11,10 +12,9 @@ namespace Tic_Tac_Toe.Controllers
     [ApiController]
     public class TicTacToeController : ControllerBase
     {
-        int i, j;
         static string[,] arr1 = new string[3, 3] { {"1","2" ,"3"},{ "4","5","6"},{ "7","8","9"} };
         List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-
+        Game game = new Game();
         static bool player = false;
         public bool ChangePlayer()
         {
@@ -26,20 +26,8 @@ namespace Tic_Tac_Toe.Controllers
         [HttpGet]
         public void Get()
         {
-            Response.WriteAsync("Make Your Choice ..\n");
-            Response.WriteAsync("------------------------------------------------------\n");
-            Response.WriteAsync("\nThe matrix is : \n");
-            for (i = 0; i < 3; i++)
-            {
-                Response.WriteAsync("\n");
-                for (j = 0; j < 3; j++) {
-
-                    Response.WriteAsync("\t" + arr1[i, j]);
-                }
-            }
-            Response.WriteAsync("\n\n");
+            DisplayBoard();
         }
-
         [HttpGet("{id}")]
         public void Get(int id)
         {
@@ -48,17 +36,60 @@ namespace Tic_Tac_Toe.Controllers
             Get();
         }
 
+        private void DisplayBoard()
+        {
+            Response.WriteAsync("Make Your Choice ..\n");
+            Response.WriteAsync("------------------------------------------------------\n");
+            Response.WriteAsync("\nThe matrix is : \n");
+            for (int i = 0; i < 3; i++)
+            {
+                Response.WriteAsync("\n");
+                for (int j = 0; j < 3; j++)
+                {
+
+                    Response.WriteAsync("\t" + arr1[i, j]);
+                }
+            }
+            Response.WriteAsync("\n\n");
+        }
+
+        public void GameAgain()
+        {
+            int k = 1;
+        
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                { 
+                    arr1[i, j] = (k++).ToString();
+                }
+            }
+          
+        }
+
+        
+
         private int UpdateBoard(int id, int jaideb)
         {
+          
+
             foreach (int element in list)
             {
                 if (id == element)
                 {
+                   
                     for (int i = 0; i < 3; i++)
                     {
                         for (int j = 0; j < 3; j++)
                         {
                             jaideb++;
+
+                            if (arr1[i,j].Equals("X") || arr1[i, j].Equals("O"))
+                            {
+                                continue;
+                            }
+                            
+                          
                             if (jaideb == id)
                             {
                                 if (ChangePlayer())
@@ -66,51 +97,47 @@ namespace Tic_Tac_Toe.Controllers
                                 else
                                     arr1[i, j] = "O";
                             }
-
-
                         }
                     }
-                    if (RowCrossed(arr1, "X"))
+                    if (game.RowCrossed(arr1, "X"))
+                    {
+
                         Response.WriteAsync("\n X Wins\n \n");
+                        GameAgain();
+                    }
+
+                    if (game.RowCrossed(arr1, "O"))
+                    {
+                        Response.WriteAsync("\n O Wins\n \n");
+                        GameAgain();
+                    }
+                    if (game.ColumnCrossed(arr1, "X"))
+                    {
+                        Response.WriteAsync("\n X Wins\n \n");
+                        GameAgain();
+                    }
+                    if (game.ColumnCrossed(arr1, "O"))
+                    {
+                        Response.WriteAsync("\n O Wins");
+                        GameAgain();
+                    }
+                    if (game.DiagonalCrossed(arr1, "X"))
+                    {
+                        Response.WriteAsync("\n X Wins\n \n");
+                        GameAgain();
+                    }
+                    if (game.DiagonalCrossed(arr1, "O"))
+                    {
+                        Response.WriteAsync("\n O Wins");
+                        GameAgain();
+                    }
+                    
+
+
                 }
             }
 
             return jaideb;
-        }
-
-
-        public bool RowCrossed(string[,] board, string v)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                if (board[i,0] == board[i,1] &&
-                    board[i,1] == board[i,2] &&
-                    board[i,0] == v)
-                    return (true);
-            }
-            return (false);
-        }
-
-
-
-
-
-        // POST: api/TicTacToe
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT: api/TicTacToe/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
