@@ -44,10 +44,25 @@ namespace Tic_Tac_Toe.Controllers
             return (false);
         }
 
-        public bool GameOver(string[,] board, string v)
+        public bool GameOver(string[,] board ,string v)
         {
             return (RowCrossed(board, v) || ColumnCrossed(board, v) || DiagonalCrossed(board, v));
 
+        }
+
+        public bool GameDraw()
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < 3; j++)
+                {
+                    if (!arr1[i, j].Contains("X") && !arr1[i, j].Contains("O"))
+                        return false;
+               
+                }
+                
+            }
+            return true;
         }
 
         public void CheckWinStatus()
@@ -153,6 +168,7 @@ namespace Tic_Tac_Toe.Controllers
 
             return position;
         }
-
+        
     }
+
 }
