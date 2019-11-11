@@ -14,7 +14,7 @@ namespace Tic_Tac_Toe.Controllers
     {
         static string[,] arr1 = new string[3, 3] { {"1","2" ,"3"},{ "4","5","6"},{ "7","8","9"} };
         List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        Game game = new Game();
+       static Game game = new Game();
         static bool player = false;
         public bool ChangePlayer()
         {
@@ -31,8 +31,8 @@ namespace Tic_Tac_Toe.Controllers
         [HttpGet("{id}")]
         public void Get(int id)
         {
-            int jaideb = 0;
-            jaideb = UpdateBoard(id, jaideb);
+            int position = 0;
+            position = UpdateBoard(id, position);
             Get();
         }
 
@@ -69,7 +69,7 @@ namespace Tic_Tac_Toe.Controllers
 
         
 
-        private int UpdateBoard(int id, int jaideb)
+        private int UpdateBoard(int id, int position)
         {
           
 
@@ -82,7 +82,7 @@ namespace Tic_Tac_Toe.Controllers
                     {
                         for (int j = 0; j < 3; j++)
                         {
-                            jaideb++;
+                            position++;
 
                             if (arr1[i,j].Equals("X") || arr1[i, j].Equals("O"))
                             {
@@ -90,7 +90,7 @@ namespace Tic_Tac_Toe.Controllers
                             }
                             
                           
-                            if (jaideb == id)
+                            if (position == id)
                             {
                                 if (ChangePlayer())
                                     arr1[i, j] = "X";
@@ -131,13 +131,18 @@ namespace Tic_Tac_Toe.Controllers
                         Response.WriteAsync("\n O Wins");
                         GameAgain();
                     }
+                    if (game.GameDraw())
+                    {
+                        Response.WriteAsync("It's a draw ..");
+                        //GameAgain();
+                    }
                     
 
 
                 }
             }
 
-            return jaideb;
+            return position;
         }
     }
 }
